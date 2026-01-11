@@ -1,0 +1,167 @@
+DAY 6 — STACKS, QUEUES & STL ALGORITHMS (DSA CORE)
+
+================================================
+1) STACK (LIFO — LAST IN, FIRST OUT)
+================================================
+
+Imagine a stack of plates 🍽️
+
+- You put a plate on top → push
+- You remove the top plate → pop
+- You only see the top plate → top
+
+You CANNOT access the middle.
+
+-----------------------------------------------
+Stack operations:
+-----------------------------------------------
+push(x) → add element
+pop()   → remove top
+top()   → see top element
+
+-----------------------------------------------
+Where stacks are used:
+-----------------------------------------------
+- Undo / Redo
+- Parentheses checking
+- Function calls (call stack)
+- Reversing things
+
+================================================
+2) QUEUE (FIFO — FIRST IN, FIRST OUT)
+================================================
+
+Imagine a line at a ticket counter 🎟️
+
+- First person enters → first served
+- No jumping allowed
+
+-----------------------------------------------
+Queue operations:
+-----------------------------------------------
+push(x)  → add at back
+pop()    → remove from front
+front()  → see front element
+
+-----------------------------------------------
+Where queues are used:
+-----------------------------------------------
+- Scheduling
+- Breadth First Search (BFS)
+- Task processing
+
+================================================
+3) PRIORITY QUEUE (IMPORTANT)
+================================================
+
+Priority Queue = special queue  
+Element with HIGHEST priority comes first.
+
+-----------------------------------------------
+Default behavior in C++:
+-----------------------------------------------
+priority_queue<int> pq;
+→ MAX HEAP (largest element on top)
+
+-----------------------------------------------
+Min Heap:
+-----------------------------------------------
+priority_queue<int, vector<int>, greater<int>> pq;
+
+-----------------------------------------------
+Where priority queue is used:
+-----------------------------------------------
+- Top K elements
+- Dijkstra’s algorithm
+- Scheduling problems
+
+================================================
+4) STL ALGORITHMS (TRUST THEM)
+================================================
+
+STL algorithms are:
+- Optimized
+- Tested
+- Used by millions
+
+Never re-write what STL already gives.
+
+-----------------------------------------------
+IMPORTANT ALGORITHMS:
+-----------------------------------------------
+
+sort(start, end)
+→ sorts range
+
+reverse(start, end)
+→ reverses range
+
+min_element(start, end)
+→ returns iterator to smallest element
+
+max_element(start, end)
+→ returns iterator to largest element
+
+count(start, end, value)
+→ counts occurrences
+
+find(start, end, value)
+→ finds value (returns iterator)
+
+================================================
+5) ITERATOR RANGE (CRITICAL IDEA)
+================================================
+
+STL algorithms work on RANGES.
+
+Range is always:
+[start, end)
+
+Meaning:
+- begin() → included
+- end()   → NOT included
+
+This is universal in C++ STL.
+
+================================================
+6) BINARY SEARCH HELPERS
+================================================
+
+Used ONLY on SORTED containers.
+
+-----------------------------------------------
+lower_bound(x):
+-----------------------------------------------
+First position where x can be inserted
+without breaking order.
+
+-----------------------------------------------
+upper_bound(x):
+-----------------------------------------------
+First position AFTER last occurrence of x.
+
+-----------------------------------------------
+Difference gives frequency in sorted array.
+
+================================================
+7) INTERVIEW RULES (MEMORIZE)
+================================================
+
+Why STL algorithms are trusted?
+→ Faster, safer, optimized, readable.
+
+When to use lower_bound / upper_bound?
+→ When data is SORTED and you need positions,
+not just existence.
+
+================================================
+8) REALITY CHECK
+================================================
+
+Good DSA coders:
+- Think in containers
+- Act with algorithms
+
+Bad ones:
+- Write loops for everything
+- Waste time

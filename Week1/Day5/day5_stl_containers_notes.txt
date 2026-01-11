@@ -1,0 +1,201 @@
+DAY 5 — STL CONTAINERS (FOUNDATION OF DSA)
+
+================================================
+1) WHAT IS STL? (VERY IMPORTANT)
+================================================
+
+STL = Standard Template Library
+
+Think of STL as:
+"Ready-made, battle-tested data structures + tools"
+
+Instead of writing:
+- arrays
+- linked lists
+- trees
+- hash tables
+
+You USE them correctly.
+
+------------------------------------------------
+STL has 3 main parts:
+------------------------------------------------
+1. Containers  → store data
+2. Algorithms  → operate on data (sort, find, etc.)
+3. Iterators   → connect containers & algorithms
+
+================================================
+2) CONTAINERS vs ALGORITHMS (BASIC IDEA)
+================================================
+
+Container = where data lives  
+Algorithm = what you do with data  
+
+Example:
+vector<int> v;        // container
+sort(v.begin(), v.end()); // algorithm
+
+Container holds.
+Algorithm works.
+
+================================================
+3) ITERATORS (NO FEAR)
+================================================
+
+Iterator = pointer-like object to traverse container
+
+Think:
+Iterator is a finger pointing to elements.
+
+You DON’T need to master iterators now.
+Just know:
+- begin() → first element
+- end() → one past last element
+
+================================================
+4) VECTOR (MOST IMPORTANT CONTAINER)
+================================================
+
+Vector = dynamic array
+
+Why vector exists:
+- Arrays have fixed size
+- Vector grows automatically
+
+-----------------------------------------------
+Why vector is DEFAULT in DSA:
+-----------------------------------------------
+- Fast access (O(1))
+- Cache friendly
+- Simple
+- Flexible
+
+If confused → use vector.
+
+================================================
+Vector Basics
+================================================
+
+Declaration:
+vector<int> v;
+
+push_back(x):
+- Adds element at end
+
+pop_back():
+- Removes last element
+
+Access:
+v[i]
+v.at(i)
+front()
+back()
+
+Size vs Capacity:
+size     → elements currently stored
+capacity → memory allocated
+
+Capacity grows automatically (usually doubles).
+
+================================================
+5) PAIR (SIMPLE BUT POWERFUL)
+================================================
+
+pair = two values bound together
+
+Example:
+pair<int, int> p = {1, 2};
+
+Use cases:
+- coordinates (x, y)
+- value + frequency
+- key + value (map internally uses pair)
+
+Nested pair:
+pair<int, pair<int,int>>
+
+================================================
+6) MAP & UNORDERED_MAP (KEY-VALUE THINKING)
+================================================
+
+Map stores:
+KEY → VALUE
+
+Example:
+"apple" → 3
+"banana" → 1
+
+-----------------------------------------------
+map:
+-----------------------------------------------
+- Ordered (sorted by key)
+- Slower (log n)
+
+-----------------------------------------------
+unordered_map:
+-----------------------------------------------
+- Not ordered
+- Faster (average O(1))
+- Uses hashing
+
+------------------------------------------------
+FREQUENCY COUNTING (DSA GOLD)
+------------------------------------------------
+
+Given array:
+[1,1,2,3,3,3]
+
+Frequency:
+1 → 2
+2 → 1
+3 → 3
+
+unordered_map is MADE for this.
+
+================================================
+7) SET & UNORDERED_SET
+================================================
+
+Set stores ONLY UNIQUE elements.
+
+-----------------------------------------------
+set:
+-----------------------------------------------
+- Ordered
+- log n operations
+
+-----------------------------------------------
+unordered_set:
+-----------------------------------------------
+- Unordered
+- Faster (average O(1))
+
+Use set when:
+- You only care if element exists
+- Duplicates are useless
+
+================================================
+8) MUST-UNDERSTAND INTERVIEW RULES
+================================================
+
+Why vector is default?
+→ Fast, simple, memory efficient.
+
+When NOT to use map?
+→ When ordering is useless and speed matters
+→ Use unordered_map instead.
+
+Time Complexity Summary:
+vector access → O(1)
+map insert/search → O(log n)
+unordered_map insert/search → O(1) average
+
+================================================
+9) REALITY CHECK
+================================================
+
+If you master STL:
+- 50% DSA problems become trivial
+- Focus shifts from coding → thinking
+
+This is leverage.

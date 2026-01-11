@@ -1,0 +1,128 @@
+DAY 3 — FUNCTIONS & MEMORY BASICS (MAANG LEVEL)
+
+====================================
+1) WHY FUNCTIONS EXIST (CORE TRUTH)
+====================================
+
+Functions exist for 3 reasons ONLY:
+
+1. Reusability
+2. Abstraction (hide complexity)
+3. Stack discipline (controlled execution)
+
+If you can’t explain what a function does to memory,
+you DO NOT understand functions.
+
+------------------------------------
+Mental Model:
+------------------------------------
+When a function is called:
+- A new STACK FRAME is created
+- Parameters + local variables live there
+- After return → stack frame is destroyed
+
+====================================
+2) FUNCTION DECLARATION vs DEFINITION
+====================================
+
+Declaration:
+- Tells compiler: "This function exists"
+- No memory allocated
+
+Definition:
+- Actual body
+- Code is placed in memory (text segment)
+
+Call:
+- Push arguments
+- Jump to function
+- Execute
+- Return value
+- Pop stack frame
+
+====================================
+3) PARAMETER PASSING
+====================================
+
+PASS BY VALUE:
+- Copy is made
+- Original variable is SAFE
+- Slower for large objects
+- Default in C++
+
+PASS BY REFERENCE:
+- Alias is created
+- Original variable CAN change
+- Faster
+- Dangerous if misused
+
+Interview Rule:
+"If function needs to MODIFY → pass by reference
+ If not → pass by value or const reference"
+
+====================================
+4) SCOPE & LIFETIME
+====================================
+
+SCOPE = where variable is visible
+LIFETIME = how long variable exists in memory
+
+Local variable:
+- Scope: inside function/block
+- Lifetime: until function ends
+
+Global variable:
+- Scope: entire file
+- Lifetime: entire program
+- MAANG hates globals unless justified
+
+====================================
+5) INLINE FUNCTIONS
+====================================
+
+Inline = request compiler to replace function call
+with function body
+
+Why?
+- Remove function call overhead
+
+Why NOT always?
+- Code bloat
+- Cache inefficiency
+- Compiler decides anyway
+
+Rule:
+Small, frequently called → inline
+Big logic → NO inline
+
+====================================
+6) STACK vs HEAP (INTRO ONLY)
+====================================
+
+STACK:
+- Fast
+- Automatic
+- Function calls
+- Local variables
+
+HEAP:
+- Slow
+- Manual (new/delete)
+- Large data
+- Dynamic lifetime
+
+If you don’t know where your variable lives,
+you don’t control your program.
+
+====================================
+7) INTERVIEW CHECKPOINT
+====================================
+
+If interviewer asks:
+"Why use functions?"
+
+Answer:
+"To structure execution, reuse logic, and control
+stack-based execution flow safely."
+
+Anything else → amateur answer.

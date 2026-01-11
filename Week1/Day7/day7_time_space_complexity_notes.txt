@@ -1,0 +1,193 @@
+DAY 7 — TIME & SPACE COMPLEXITY + REVISION (MENTAL MODEL DAY)
+
+================================================
+0) WHY DAY 7 EXISTS
+================================================
+
+If you can write code but cannot analyze it,
+you are NOT interview-ready.
+
+MAANG interviews do NOT test syntax.
+They test:
+- how you THINK
+- how you SCALE solutions
+
+================================================
+1) TIME COMPLEXITY (FROM SCRATCH)
+================================================
+
+Time Complexity = how runtime grows
+as input size (n) grows.
+
+We IGNORE:
+- machine speed
+- constants
+- small inputs
+
+We CARE about:
+- growth pattern
+
+-----------------------------------------------
+O(1) — CONSTANT TIME
+-----------------------------------------------
+Time does NOT depend on n.
+
+Examples:
+- accessing v[i]
+- push_back (amortized)
+- unordered_map lookup (average)
+
+-----------------------------------------------
+O(n) — LINEAR TIME
+-----------------------------------------------
+Time grows proportional to n.
+
+Examples:
+- single loop
+- traversing vector
+- counting frequency once
+
+-----------------------------------------------
+O(n log n) — OPTIMAL SORTING
+-----------------------------------------------
+Examples:
+- sort()
+- merge sort
+- heap sort
+
+This is considered FAST for large n.
+
+-----------------------------------------------
+O(n²) — DANGER ZONE
+-----------------------------------------------
+Nested loops over same data.
+
+Examples:
+- brute force subarrays
+- comparing every pair
+
+Allowed only for small n.
+
+================================================
+2) SPACE COMPLEXITY
+================================================
+
+Space Complexity = extra memory used
+apart from input.
+
+-----------------------------------------------
+Auxiliary Space
+-----------------------------------------------
+Extra space used by algorithm.
+
+Example:
+- extra vector
+- map / set
+- recursion stack
+
+-----------------------------------------------
+In-place Algorithms
+-----------------------------------------------
+Use O(1) extra space.
+
+Example:
+- reversing array in same vector
+- swapping elements
+
+Interviewers LOVE in-place solutions.
+
+================================================
+3) STL COMPLEXITY (MUST MEMORIZE)
+================================================
+
+VECTOR:
+- access → O(1)
+- push_back → O(1) amortized
+- insert middle → O(n)
+
+MAP (ordered):
+- insert / find → O(log n)
+
+UNORDERED_MAP:
+- insert / find → O(1) average
+- worst → O(n) (rare)
+
+SET vs UNORDERED_SET:
+Same logic as map vs unordered_map.
+
+================================================
+4) HOW TO CHOOSE CONTAINER (INTERVIEW RULE)
+================================================
+
+Ask yourself:
+
+1. Do I need ORDER?
+   → yes → map / set
+   → no  → unordered_map / unordered_set
+
+2. Do I need FAST access by index?
+   → yes → vector
+
+3. Do I only care about existence?
+   → set / unordered_set
+
+================================================
+5) C++ MENTAL MODEL (MOST IMPORTANT)
+================================================
+
+Stop thinking:
+- loops first
+- conditions first
+
+Start thinking:
+- container first
+- algorithm next
+
+Example:
+Not:
+"How do I loop to find min?"
+
+But:
+"min_element does this already."
+
+================================================
+6) REVISION — WEEK 1 IN ONE PAGE
+================================================
+
+DAY 1–2:
+- Syntax & flow control
+
+DAY 3–4:
+- Memory, references, pointers
+
+DAY 5:
+- Containers
+
+DAY 6:
+- Containers + behavior (algorithms)
+
+DAY 7:
+- Analysis + thinking
+
+If syntax still distracts you → revise DAY 1–2.
+
+================================================
+7) INTERVIEW REALITY CHECK
+================================================
+
+If interviewer asks:
+"What is the complexity?"
+
+You should answer WITHOUT HESITATION.
+
+Confidence comes from clarity,
+not memorization.
+
+================================================
+8) FINAL RULE
+================================================
+
+C++ is NOT the goal.
+DSA thinking IS.
+
+Syntax must disappear.

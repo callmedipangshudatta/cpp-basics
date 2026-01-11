@@ -1,0 +1,145 @@
+DAY 4 — POINTERS & REFERENCES (CORE MEMORY CONTROL)
+
+================================================
+0) WHY POINTERS EXIST (READ THIS CAREFULLY)
+================================================
+
+Pointers exist because:
+- Memory is real
+- Variables live at addresses
+- Programs need to ACCESS memory directly
+
+If you fear pointers → you fear systems.
+MAANG engineers DO NOT fear memory.
+
+================================================
+1) POINTER BASICS
+================================================
+
+A pointer:
+- Stores ADDRESS of another variable
+- Type matters (int*, double*, etc.)
+
+Declaration:
+int *p;
+
+This does NOT create an int.
+It creates a variable that can STORE an address of int.
+
+================================================
+2) ADDRESS OPERATOR (&)
+================================================
+
+& gives the ADDRESS of a variable.
+
+Example:
+int x = 10;
+&x → address of x in memory
+
+================================================
+3) DEREFERENCE OPERATOR (*)
+================================================
+
+* means:
+"Go to the address and access the value there"
+
+If:
+p = &x;
+
+Then:
+*p → value of x
+
+Important:
+- p is address
+- *p is data
+
+================================================
+4) NULL POINTER
+================================================
+
+A pointer pointing to NOTHING.
+
+int *p = NULL;  (or nullptr in modern C++)
+
+Why needed?
+- Safety
+- Avoid garbage memory access
+
+Golden Rule:
+Never dereference a NULL pointer.
+
+================================================
+5) REFERENCES (INTRO)
+================================================
+
+A reference:
+- Alias to an existing variable
+- No new memory
+- Cannot be NULL
+- Cannot be changed once bound
+
+int x = 10;
+int &ref = x;
+
+ref and x are SAME memory.
+
+================================================
+6) POINTER vs REFERENCE (INTERVIEW GOLD)
+================================================
+
+Pointer:
+- Can be NULL
+- Can be reassigned
+- Explicit dereferencing (*)
+
+Reference:
+- Cannot be NULL
+- Cannot change binding
+- Automatic dereference
+
+STL prefers references for:
+- Safety
+- Cleaner syntax
+- Performance
+
+================================================
+7) PASS BY REFERENCE (WHY IT MATTERS)
+================================================
+
+Default C++ → pass by value (copy)
+
+Reference passing:
+- No copy
+- Faster
+- Allows modification
+
+MAANG Rule:
+Large data structures → pass by reference
+
+================================================
+8) COMMON MISTAKES
+================================================
+
+UNINITIALIZED POINTER:
+int *p;   // p points to garbage
+
+DANGLING POINTER:
+- Points to memory that no longer exists
+
+Both cause:
+- Undefined behavior
+- Silent bugs
+- Interview failure
+
+================================================
+9) INTERVIEW CHECKPOINT
+================================================
+
+If asked:
+"Why STL uses references?"
+
+Answer:
+"To avoid unnecessary copies, ensure safety,
+and provide cleaner abstraction over memory."
+
+Short. Confident. Correct.
