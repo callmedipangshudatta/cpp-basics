@@ -1,84 +1,90 @@
-# Day 7 — Dry Run Recall
+📌 Day 7 — Dry Run Recall
 
-Goal:  
-Explain pointer movement clearly without using code.
+Goal: Explain pointer movement clearly without code.
 
----
+This section tests whether you can simulate logic verbally, like in an interview.
 
-## Two Pointers Dry Run
+🔁 Two Pointers — Dry Run
+📘 Example: "racecar"
+▶️ Step-by-Step Movement
 
-Example: "racecar"
+Initial State
 
-Step 1:
+left  → 'r'
+right → 'r'
 
-left = r  
-right = r  
-Match → move inward
 
-Step 2:
+Characters match → move inward
 
-a vs a → match  
-Move inward
+Next Comparisons
 
-Continue until pointers cross.
+'a' vs 'a' → match
+'c' vs 'c' → match
 
-Observation:
 
-- Outer characters are already confirmed correct
-- Only the middle region is being checked
+Pointers continue moving inward.
 
-Stopping Condition:
+🧠 Observation
 
-If left >= right → palindrome confirmed  
-If mismatch appears → not palindrome
+Characters outside the pointers are already confirmed correct
 
----
+Only the middle region is being checked
 
-## Sliding Window Dry Run
+🛑 Stopping Conditions
 
-Example: Longest Substring Without Repeating Characters
+left >= right → palindrome confirmed
 
-String: "abcabcbb"
+Any mismatch → not a palindrome
 
-Step 1:
+🌊 Sliding Window — Dry Run
+📘 Example: Longest Substring Without Repeating Characters
+
+String
+
+"abcabcbb"
+
+▶️ Window Expansion
 
 Add 'a' → valid → answer = 1
 
-Step 2:
-
 Add 'b' → valid → answer = 2
-
-Step 3:
 
 Add 'c' → valid → answer = 3
 
-Step 4:
+⚠️ Constraint Breaks
 
-Add 'a' → duplicate → window becomes invalid
+Add 'a' → duplicate appears
 
-Action:
+Window becomes invalid
 
-Move left until duplicate is removed.
+🔽 Shrinking Action
 
-Window becomes valid again.  
-Update answer only when valid.
+Move left
 
-Key Insight:
+Remove characters until duplicate is removed
 
-Duplicate character is the signal to shrink.
+Restore validity
 
----
+🎯 Answer Update Rule
 
-## Fixed Window Mini Recall
+Update answer only when the window is valid
 
-Example:
+🧠 Key Insight
 
-Window size = 3
+The appearance of a duplicate character is the signal to start shrinking.
 
-Slide window:
+🧱 Fixed Window — Mini Recall
+📘 Example: Window Size = 3
+▶️ Sliding Logic
 
-- Add new element
-- Remove old element
-- Maintain count
+Add new element
+
+Remove old element
+
+Update count
+
+🧠 Core Rule
 
 Window size never changes.
+
+Only contents change as the window slides.

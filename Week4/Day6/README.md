@@ -1,17 +1,18 @@
-DAY 6 — Sliding Window (PATTERN LOCK)
-TOKEN-1 — ONE PAGE FINAL (1 Hour)
+📌 DAY 6 — Sliding Window (Pattern Lock)
 
-This page is the final memory sheet for the Sliding Window pattern.
-Read slowly and try to recall the full logic without seeing code.
+ONE-PAGE FINAL MEMORY SHEET
+Goal: Recall the entire Sliding Window pattern without code.
 
 Rule:
-This must remain a one-page summary.
-If it becomes long, rewrite shorter.
+If this grows long → rewrite shorter.
+
+🧠 Core Recall Line
+
+Expand → Break → Shrink → Restore → Update
+
+If this sentence is automatic, the pattern is locked.
 
 1️⃣ Pattern Trigger Recognition
-
-Certain keywords immediately suggest Sliding Window.
-
 🔑 Trigger Keywords
 
 substring
@@ -26,15 +27,19 @@ at most / at least
 
 without repeating
 
-If the problem talks about a continuous range inside a string or array, Sliding Window should be the first pattern to consider.
+If a problem talks about a continuous range in a string or array,
+Sliding Window should be your first thought.
 
-Reason:
+❓ Why Sliding Window?
 
 Brute force checks all substrings → O(n²)
-Sliding Window keeps a moving range → O(n)
+
+Sliding Window maintains one moving range → O(n)
 
 2️⃣ Fixed Window vs Variable Window
 🧱 Fixed Window
+
+Characteristics
 
 Window size = k
 
@@ -42,7 +47,7 @@ Left and right move together
 
 Size never changes
 
-Used when:
+Used when
 
 Problem explicitly gives window size
 
@@ -50,128 +55,132 @@ Example: “substring of size k”
 
 🌊 Variable Window
 
-Window size changes.
+Characteristics
 
-Expand until condition breaks
+Window size changes
+
+Expand until constraint breaks
 
 Shrink to restore validity
 
-Used when:
+Used when
 
-Problem asks for longest or smallest substring
+Longest / smallest valid substring
 
-Uses “at most k”
+“At most k”
 
-Uses “without repeating”
+“Without repeating”
 
-Identification Rule
-
-“size k” → Fixed Window
-“longest / smallest valid substring” → Variable Window
+🧭 Identification Rule
+“size k”                    → Fixed Window
+“longest / smallest valid”  → Variable Window
 
 3️⃣ Expand → Shrink Logic
-Expanding the Window
+🔄 Expand (Right Pointer)
 
-Move the right pointer.
+Move right
 
-Include new character
+Include new element
 
-Update frequency or count
+Update frequency / count
 
-Check if constraint is satisfied
+Check constraint
 
-When Constraint Breaks
+⚠️ When Constraint Breaks
 
-Window may become temporarily invalid.
-This is expected behavior.
+Window may become temporarily invalid
 
-Shrinking the Window
+This is expected
 
-Move the left pointer.
+Do not panic
 
-Remove character
+Do not update answer
+
+🔽 Shrink (Left Pointer)
+
+Move left
+
+Remove element
 
 Decrement frequency
 
-Continue shrinking until constraint becomes valid again
+Repeat until window becomes valid
 
-Updating the Answer
+🎯 Update the Answer
 
 Update only when:
 
 Window is valid
 
-Constraint satisfied
+Constraint is satisfied
 
-Cycle followed in every problem:
+🔁 Universal Cycle
 
 Expand → Break → Shrink → Restore → Update
 
-4️⃣ Core Invariant
+Every sliding window problem follows this.
 
-Write and remember:
+4️⃣ Core Invariant (Must Never Break)
 
-“At every step, the window represents a valid or almost-valid substring according to the problem constraint.”
+“At every step, the window represents a valid or almost-valid substring according to the constraint.”
 
-Almost-valid means:
+Almost-valid means
 
 Temporary violation is allowed
 
 Shrinking restores validity
 
-The invariant must never remain broken.
+❌ The invariant must never stay broken.
 
 5️⃣ Time & Space Complexity
-Time Complexity
+⏱️ Time — O(n)
 
-Right pointer moves at most n times
+Right pointer moves ≤ n
 
-Left pointer moves at most n times
+Left pointer moves ≤ n
 
-Total operations ≈ 2n → O(n)
+Total operations ≈ 2n
 
-There is no true nested loop.
+No real nested loop.
 
-Space Complexity
+🧠 Space — O(1) / O(k)
 
-We store character frequency.
-
-Typical limits:
+We store frequency:
 
 26 lowercase letters
 
-128 ASCII
+128 ASCII characters
 
-Space → O(1) or O(k)
+Acceptable in interviews.
 
-Acceptable for interview problems.
-
-6️⃣ Classic Problems
+6️⃣ Classic Lock-In Problems
 
 Longest Substring Without Repeating Characters
 
 Longest Repeating Character Replacement (424)
 
-These cover:
+These teach:
 
 Duplicate handling
 
-“At most k” condition
+“At most k”
 
 Variable window mastery
 
-🎯 Goal of Day 6
+🎯 End Goal of Day 6
 
-After this page you should:
+After this page, you should be able to:
 
 Recognize Sliding Window within seconds
 
-Decide fixed vs variable correctly
+Choose fixed vs variable correctly
 
 Recall expand–shrink cycle from memory
 
 Explain O(n) confidently
 
-Approach medium problems without hesitation
+Approach medium problems calmly
 
-Pattern locked → Execution becomes easier.
+✅ Final Check
+
+Expand → Break → Shrink → Restore → Update

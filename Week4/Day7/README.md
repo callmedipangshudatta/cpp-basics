@@ -1,173 +1,185 @@
-# DAY 7 — Detailed Revision Day (MOST IMPORTANT)
+📌 DAY 7 — Detailed Revision Day (MOST IMPORTANT)
 
-No new learning.  
-No browsing.  
-No copying.  
+No new learning.
+No browsing.
+No copying.
 
-This day is for proving that the patterns are fully understood from memory.
+This day proves the patterns are understood from memory.
 
-Goal:
+Core Goal:
+If you can explain clearly without notes, you truly understand.
 
-If you can explain clearly without notes, you truly understand the logic.
+⏱️ TOKEN-1 — Active Recall (1 Hour)
 
----
+Speak out loud
 
-## TOKEN-1 — Active Recall (1 Hour)
+Do not read silently
 
-Speak aloud while revising.  
-Interviews test verbal clarity, not silent thinking.
+Treat this like a mock interview
 
----
+Interviews test verbal clarity, not quiet thinking.
 
-## 1️⃣ Pattern Recall
+🧠 1️⃣ Pattern Recall (From Memory)
 
-Explain both patterns from memory.
+Explain both patterns without looking at notes.
 
----
-
-### Two Pointers (Strings)
-
-#### Trigger
+🔁 Two Pointers (Strings)
+🔑 Trigger Recognition
 
 Use Two Pointers when the problem mentions:
 
-- Palindrome
-- Reverse string
-- Compare from both ends
-- Symmetry
-- Pair checking
+Palindrome
 
-If characters must be checked from left and right together, consider Two Pointers.
+Reverse string
 
----
+Compare from both ends
 
-#### Invariant
+Symmetry
+
+Pair checking
+
+If characters must be checked from left and right together,
+Two Pointers is the first pattern to consider.
+
+🧠 Core Invariant
 
 At every step:
 
-- Characters before the left pointer are already verified
-- Characters after the right pointer are already verified
+Characters before left are already verified
 
-Only the middle region remains unchecked.
+Characters after right are already verified
 
-If mismatch appears, the condition fails immediately.
+Only the middle region is unchecked
 
----
+If a mismatch appears → the condition fails immediately.
 
-#### Pointer Movement
+🔄 Pointer Movement
 
-Initial:
+Initialization
 
-left = 0  
+left  = 0
 right = n - 1
 
-If characters match:
 
-left++  
+If characters match
+
+left++
 right--
 
-If mismatch:
 
-Return false.
+If mismatch
+
+return false
+
 
 Pointers never move backward.
 
----
+⏱️ Time & Space
 
-#### Time & Space
+Time → O(n)
 
-Time → O(n)  
 Space → O(1)
 
-Each character is checked once with no extra memory.
+Each character is checked once.
+No extra memory is used.
 
----
+🌊 Sliding Window (Strings)
+🔑 Trigger Recognition
 
-### Sliding Window (Strings)
+Look for keywords:
 
-#### Trigger
+substring
 
-Look for:
+contiguous
 
-- Substring
-- Contiguous
-- Longest or shortest
-- Frequency or count
-- At most k
-- Without repeating
+longest / shortest
 
-Continuous range inside a string usually suggests Sliding Window.
+frequency / count
 
----
+at most k
 
-#### Invariant
+without repeating
+
+A continuous range inside a string usually means Sliding Window.
+
+🧠 Core Invariant
 
 The window always represents a valid or almost-valid substring.
 
 If invalid:
 
-Shrink until validity is restored.
+Shrink until validity is restored
 
-The window must never remain invalid.
+❌ The window must never remain invalid.
 
----
+🔄 Pointer Movement Logic
 
-#### Pointer Movement
+Right pointer → expands the window
 
-Right pointer expands the window.  
-Left pointer shrinks the window.
+Left pointer → shrinks the window
 
-Flow:
+Recall Flow
 
-1. Add new character
-2. Update frequency
-3. Check constraint
-4. If broken, shrink
-5. Restore validity
-6. Update answer
+Add new character
 
-Cycle:
+Update frequency
+
+Check constraint
+
+If broken → shrink
+
+Restore validity
+
+Update answer
+
+🔁 Universal Cycle
 
 Expand → Break → Shrink → Restore → Update
 
----
+Every Sliding Window problem follows this cycle.
 
-#### Time & Space
+⏱️ Time & Space
 
 Time → O(n)
 
-Right moves at most n times.  
-Left moves at most n times.
+Right moves ≤ n times
+
+Left moves ≤ n times
 
 Space → O(1) or O(k)
 
-Frequency storage is limited.
+Frequency storage is limited
 
----
+🧪 2️⃣ Dry-Run Recall (No Code)
 
-## 2️⃣ Dry-Run Recall (From Memory)
+Explain pointer movement verbally:
 
-Explain pointer movement without code.
+One palindrome example
 
-- One palindrome example
-- One sliding window example
+One sliding window example
 
 Focus on:
 
-- Why pointers move
-- When shrinking starts
-- When answer updates
+Why pointers move
 
----
+When shrinking starts
 
-## 🎯 Goal of Day 7
+When the answer updates
 
-After this session you should:
+🎯 End Goal of Day 7
 
-- Explain both patterns without notes
-- State invariants confidently
-- Describe pointer movement clearly
-- Justify O(n) without hesitation
-- Speak logic calmly like in an interview
+After this session, you should be able to:
 
-Understanding → Confidence → Control under pressure
+Explain both patterns without notes
+
+State invariants confidently
+
+Describe pointer movement clearly
+
+Justify O(n) without hesitation
+
+Speak logic calmly like in an interview
+
+✅ Final Check
+
+We’re interview-ready.

@@ -1,80 +1,94 @@
-# Day 7 — Interview Simulation Answers
+📌 Day 7 — Interview Simulation Answers
 
----
+Purpose: Practice how to say the logic clearly in an interview.
 
-## Why Not Brute Force?
+These are spoken answers, not written explanations.
 
-Brute force checks:
+❓ Why Not Brute Force?
+🚫 Brute Force Does
 
-- All substrings
-- All pairs
+Checks all substrings
 
-Time ≈ O(n²)
+Checks all pairs
 
-Efficient approaches:
+Time
 
-- Two Pointers → O(n)
-- Sliding Window → O(n)
+O(n²)
 
-Reason:
 
-We reuse previous computation instead of recalculating.
+Too slow for large inputs.
 
----
+✅ Efficient Patterns
 
-## What Breaks If Pointers Move Incorrectly?
+Two Pointers → O(n)
 
-### Two Pointers
+Sliding Window → O(n)
 
-- May skip mismatch
-- Can falsely detect palindrome
+🧠 Key Reason (Say This)
 
-### Sliding Window
+“We reuse previous computation instead of recalculating from scratch.”
 
-- Window may remain invalid
-- Frequency becomes incorrect
-- Answer becomes wrong
+This is the core optimization.
+
+❓ What Breaks If Pointers Move Incorrectly?
+🔁 Two Pointers
+
+May skip a mismatch
+
+Can falsely detect a palindrome
+
+🌊 Sliding Window
+
+Window may remain invalid
+
+Frequency map becomes incorrect
+
+Final answer becomes wrong
+
+⚠️ Core Insight
 
 Pointer discipline ensures correctness.
 
----
+❓ What Invariant Maintains Correctness?
+🔁 Two Pointers
 
-## What Invariant Maintains Correctness?
+The outer region is already verified and correct.
 
-### Two Pointers
+Only the middle remains unchecked.
 
-Outer region already verified.
+🌊 Sliding Window
 
-### Sliding Window
+The window is always valid or being restored.
 
-Window is always valid or being restored.
+It must never remain invalid.
 
-Invariant is the safety rule that keeps logic correct.
+🧠 Why Invariants Matter
 
----
+The invariant is the safety rule that prevents logical errors.
 
-## Worst-Case Complexity
+❓ Worst-Case Complexity
+🔁 Two Pointers
 
-### Two Pointers
+Time → O(n)
 
-Time → O(n)  
 Space → O(1)
 
-### Sliding Window
+🌊 Sliding Window
 
-Time → O(n)  
+Time → O(n)
+
 Space → O(1) or O(k)
 
+📌 Reason
+
 Pointers only move forward.
+No element is processed more than twice.
 
----
+❓ How Would I Explain This to an Interviewer?
+🔁 Two Pointers (Verbal Answer)
 
-## How Would I Explain This to an Interviewer?
+“I compare characters from both ends and move inward while maintaining that the checked region is already correct.”
 
-### Two Pointers
+🌊 Sliding Window (Verbal Answer)
 
-I compare characters from both ends and move inward while maintaining that the checked region is already correct.
-
-### Sliding Window
-
-I maintain a dynamic window that expands to explore and shrinks when constraints break, ensuring the window always represents a valid substring.
+“I maintain a dynamic window that expands to explore and shrinks when constraints break, ensuring the window always represents a valid substring.”
