@@ -1,14 +1,12 @@
 DAY 5 — Sliding Window (RECALL + TRAPS)
 TOKEN-1 — Recall (1 Hour, NO CODE)
 
-This document is for reinforcing memory, not learning new things.
-You should be able to recall the full sliding window flow without seeing code.
-
-Read slowly. Visualize the window moving.
+This document reinforces the Sliding Window pattern from memory.
+Read slowly. Try to recall the full flow without looking at code.
 
 1️⃣ Sliding Window Template (Logic Only)
 
-Every Sliding Window problem follows the same 3-step cycle.
+Every Sliding Window problem follows the same cycle.
 
 🔄 Expand Condition
 
@@ -16,17 +14,13 @@ Move the right pointer.
 
 Purpose:
 
-Include a new element
+Include a new element inside the window
 
 Increase window size
 
-Update frequency / count
+Update frequency or count
 
-Think:
-
-“Can I safely grow the window?”
-
-Actions:
+Steps:
 
 Add s[right]
 
@@ -34,7 +28,7 @@ Increment frequency
 
 Check if constraint is still valid
 
-⚠️ When Window Becomes Invalid
+⚠️ When the Window Becomes Invalid
 
 The new element may cause:
 
@@ -44,9 +38,7 @@ Frequency exceeding limit
 
 Replacement count exceeding k
 
-This is normal.
-
-The window is allowed to become temporarily invalid.
+This temporary violation is normal.
 
 🔽 Shrink Condition
 
@@ -58,7 +50,7 @@ Remove extra characters
 
 Restore validity
 
-Actions:
+Steps:
 
 Remove s[left]
 
@@ -66,13 +58,13 @@ Decrement frequency
 
 Continue shrinking until constraint becomes valid again
 
-🎯 When to Update Answer
+🎯 When to Update the Answer
 
-Only update answer when:
+Update only when:
 
 Window is valid
 
-Constraint satisfied
+Constraint is satisfied
 
 Common updates:
 
@@ -82,42 +74,38 @@ Minimum length
 
 Maximum count
 
-If updated too early → wrong answer.
+Updating early leads to incorrect answers.
 
-2️⃣ Common Sliding Window Traps (Write & Remember)
+2️⃣ Common Sliding Window Traps
 
-These are the mistakes that break correct logic.
+These mistakes break correct logic.
 
 Trap 1 — Updating Before Window Is Valid
 
 Window contains violation
-But answer already updated.
+But answer is already updated.
 
-Result:
-
-Incorrect maximum length.
+Result → Incorrect maximum.
 
 Trap 2 — Shrinking Too Late
 
-Window stays invalid for too long.
+Window remains invalid for too long.
 
-Effects:
+Effect:
 
 Frequency map becomes incorrect
 
-Window logic collapses
+Window logic fails
 
 Trap 3 — Forgetting to Decrement Frequency
 
 While shrinking:
 
-You must remove the left character
+The left character must be removed
 
-Frequency must reduce
+Frequency must decrease
 
-If not:
-
-Duplicate still “exists” logically.
+Otherwise the duplicate still exists logically.
 
 Trap 4 — Incorrect Window Length Calculation
 
@@ -131,55 +119,47 @@ Common mistake:
 right - left
 
 
-You lose one element.
+One element is lost.
 
 Trap 5 — Misunderstanding “At Most k”
 
 “At most k” means:
 
-Window allowed while:
+Condition is allowed while:
 
-condition ≤ k
+value ≤ k
 
 
-Not:
+It does not mean exactly k.
 
-Exactly k.
-
-This mistake breaks many medium problems.
-
-3️⃣ Time & Space Reasoning (Interview Critical)
-
-You must explain this confidently without thinking.
-
-⏱️ Why Sliding Window is O(n)
+3️⃣ Time & Space Reasoning
+⏱️ Why Sliding Window Is O(n)
 
 Each element:
 
-Added once by right pointer
+Added once by the right pointer
 
-Removed once by left pointer
+Removed once by the left pointer
 
-Movements:
+Pointer movement:
 
-Right moves → n times
+Right moves at most n times
 
-Left moves → at most n times
+Left moves at most n times
 
-Total ≈ 2n
-Still O(n)
+Total operations ≈ 2n → O(n)
 
-There is no true nested loop.
+There is no real nested loop.
 
 🧱 Why Brute Force Substrings Are O(n²)
 
-Brute force:
+Brute force approach:
 
-Pick start index
+Choose start index
 
-Pick end index
+Choose end index
 
-Number of substrings:
+Total substrings:
 
 n + (n-1) + (n-2) ...
 ≈ n²
@@ -193,33 +173,34 @@ We store:
 
 Character frequency
 
-Usually limited:
+Typical limits:
 
-26 lowercase
+26 lowercase letters
 
 52 alphabets
 
 128 ASCII
 
-Space ≈ O(1) in most cases.
+Space ≈ O(1) in most interview problems.
 
-Even hashmap only stores unique characters.
-
-Core Recall Line (Memorize This)
+Core Recall Line
 
 Expand → Break → Shrink → Restore → Update
 
-If you remember only this line,
-you can still rebuild the entire Sliding Window logic.
+If you remember this line, you can rebuild the entire logic.
 
 🎯 Goal of Day 5
 
-By the end of this session you should:
+After this session you should be able to:
 
 Recall the sliding window cycle without notes
 
 Detect traps before they happen
 
-Explain why it is O(n)
+Explain why the time complexity is O(n)
 
-Know exactly when to expand and shrink
+Know exactly when to expand and when to shrink
+
+Stay calm when the window becomes invalid
+
+Understanding first. Speed later.

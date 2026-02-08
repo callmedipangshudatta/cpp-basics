@@ -1,16 +1,18 @@
 DAY 6 — Sliding Window (PATTERN LOCK)
 TOKEN-1 — ONE PAGE FINAL (1 Hour)
 
+This page is the final memory sheet for the Sliding Window pattern.
+Read slowly and try to recall the full logic without seeing code.
+
 Rule:
-This must fit in ONE PAGE ONLY.
-If it becomes long → rewrite shorter.
+This must remain a one-page summary.
+If it becomes long, rewrite shorter.
 
-STRING — SLIDING WINDOW (FINAL)
-1️⃣ Trigger Words (Pattern Recognition)
+1️⃣ Pattern Trigger Recognition
 
-If the problem mentions:
+Certain keywords immediately suggest Sliding Window.
 
-🔑 Keywords
+🔑 Trigger Keywords
 
 substring
 
@@ -24,16 +26,14 @@ at most / at least
 
 without repeating
 
-Immediate thought:
-
-Continuous range inside string → Try Sliding Window first.
+If the problem talks about a continuous range inside a string or array, Sliding Window should be the first pattern to consider.
 
 Reason:
 
-Brute force substrings = O(n²)
-Sliding Window avoids rechecking = O(n)
+Brute force checks all substrings → O(n²)
+Sliding Window keeps a moving range → O(n)
 
-2️⃣ Fixed vs Variable (Decision Rule)
+2️⃣ Fixed Window vs Variable Window
 🧱 Fixed Window
 
 Window size = k
@@ -44,9 +44,9 @@ Size never changes
 
 Used when:
 
-“Substring of size k”
+Problem explicitly gives window size
 
-“Window length k”
+Example: “substring of size k”
 
 🌊 Variable Window
 
@@ -58,53 +58,52 @@ Shrink to restore validity
 
 Used when:
 
-Longest substring
+Problem asks for longest or smallest substring
 
-Smallest valid substring
+Uses “at most k”
 
-At most k
+Uses “without repeating”
 
-Without repeating
+Identification Rule
 
-Quick Identification
-
-“size k” → Fixed
-“longest / smallest valid” → Variable
+“size k” → Fixed Window
+“longest / smallest valid substring” → Variable Window
 
 3️⃣ Expand → Shrink Logic
-Expand
+Expanding the Window
 
-Move right pointer
+Move the right pointer.
 
-Add new character
+Include new character
 
-Update frequency / count
+Update frequency or count
 
-Check:
+Check if constraint is satisfied
 
-Is constraint satisfied?
+When Constraint Breaks
 
-If Broken
+Window may become temporarily invalid.
+This is expected behavior.
 
-Window becomes temporarily invalid.
+Shrinking the Window
 
-This is normal.
-
-Shrink
-
-Move left pointer
+Move the left pointer.
 
 Remove character
 
 Decrement frequency
 
-Continue until window becomes valid again
+Continue shrinking until constraint becomes valid again
 
-Update Answer
+Updating the Answer
 
-Only when window is valid.
+Update only when:
 
-Cycle:
+Window is valid
+
+Constraint satisfied
+
+Cycle followed in every problem:
 
 Expand → Break → Shrink → Restore → Update
 
@@ -112,39 +111,42 @@ Expand → Break → Shrink → Restore → Update
 
 Write and remember:
 
-At every step, the window represents a valid or almost-valid substring according to the constraint.
+“At every step, the window represents a valid or almost-valid substring according to the problem constraint.”
 
-“Almost-valid”:
+Almost-valid means:
 
-Temporary violation allowed
+Temporary violation is allowed
 
-Shrinking fixes it
+Shrinking restores validity
 
-Invariant must never remain broken.
+The invariant must never remain broken.
 
 5️⃣ Time & Space Complexity
-Time
+Time Complexity
 
-Right moves n times
+Right pointer moves at most n times
 
-Left moves at most n times
+Left pointer moves at most n times
 
-Total ≈ 2n
-→ O(n)
+Total operations ≈ 2n → O(n)
 
-No true nested loops.
+There is no true nested loop.
 
-Space
+Space Complexity
 
-Frequency storage:
+We store character frequency.
 
-26 letters / 128 ASCII
+Typical limits:
+
+26 lowercase letters
+
+128 ASCII
 
 Space → O(1) or O(k)
 
-Acceptable for interviews.
+Acceptable for interview problems.
 
-6️⃣ Two Classic Problems
+6️⃣ Classic Problems
 
 Longest Substring Without Repeating Characters
 
@@ -162,10 +164,14 @@ Variable window mastery
 
 After this page you should:
 
-Recognize Sliding Window in under 5 seconds
+Recognize Sliding Window within seconds
 
-Decide Fixed vs Variable instantly
+Decide fixed vs variable correctly
 
 Recall expand–shrink cycle from memory
 
-Explain O(n) without hesitation
+Explain O(n) confidently
+
+Approach medium problems without hesitation
+
+Pattern locked → Execution becomes easier.

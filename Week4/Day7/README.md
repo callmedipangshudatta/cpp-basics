@@ -1,216 +1,173 @@
-DAY 7 — DETAILED REVISION DAY (MOST IMPORTANT)
+# DAY 7 — Detailed Revision Day (MOST IMPORTANT)
 
-Rules of Today
+No new learning.  
+No browsing.  
+No copying.  
 
-No new learning
-
-No browsing
-
-No copying
-
-Only memory, thinking, and explanation
+This day is for proving that the patterns are fully understood from memory.
 
 Goal:
 
-If you can explain without notes, the pattern is truly yours.
+If you can explain clearly without notes, you truly understand the logic.
 
-TOKEN-1 — Active Recall (1 Hour)
+---
 
-Speak out loud.
-Silent thinking is not enough — interviews are verbal.
+## TOKEN-1 — Active Recall (1 Hour)
 
-Part 1️⃣ — Pattern Recall
+Speak aloud while revising.  
+Interviews test verbal clarity, not silent thinking.
+
+---
+
+## 1️⃣ Pattern Recall
 
 Explain both patterns from memory.
 
-A. Two Pointers (Strings)
-🔑 Trigger
+---
 
-Use Two Pointers when problem mentions:
+### Two Pointers (Strings)
 
-Palindrome
+#### Trigger
 
-Reverse string
+Use Two Pointers when the problem mentions:
 
-Compare from both ends
+- Palindrome
+- Reverse string
+- Compare from both ends
+- Symmetry
+- Pair checking
 
-Pair checking
+If characters must be checked from left and right together, consider Two Pointers.
 
-Symmetry
+---
 
-Core signal:
+#### Invariant
 
-Need to process string from left and right together.
+At every step:
 
-🛡️ Invariant
+- Characters before the left pointer are already verified
+- Characters after the right pointer are already verified
 
-Invariant means the rule that always stays true.
+Only the middle region remains unchecked.
 
-For palindrome:
+If mismatch appears, the condition fails immediately.
 
-Characters before left are already correct
+---
 
-Characters after right are already correct
-
-Only the middle part is unknown.
-
-If mismatch appears → stop immediately.
-
-🔄 Pointer Movement
+#### Pointer Movement
 
 Initial:
 
 left = 0  
 right = n - 1
 
-
 If characters match:
 
-left++
+left++  
 right--
-
 
 If mismatch:
 
-Return false
+Return false.
 
 Pointers never move backward.
 
-⏱️ Time & Space
+---
 
-Time:
+#### Time & Space
 
-Each character checked once → O(n)
+Time → O(n)  
+Space → O(1)
 
-Space:
+Each character is checked once with no extra memory.
 
-No extra storage → O(1)
+---
 
-B. Sliding Window (Strings)
-🔑 Trigger
+### Sliding Window (Strings)
+
+#### Trigger
 
 Look for:
 
-Substring
+- Substring
+- Contiguous
+- Longest or shortest
+- Frequency or count
+- At most k
+- Without repeating
 
-Contiguous
+Continuous range inside a string usually suggests Sliding Window.
 
-Longest / shortest
+---
 
-Frequency / count
+#### Invariant
 
-At most k
+The window always represents a valid or almost-valid substring.
 
-Without repeating
+If invalid:
 
-Signal:
+Shrink until validity is restored.
 
-Continuous range inside string → Sliding Window.
+The window must never remain invalid.
 
-🛡️ Invariant
+---
 
-Window always represents a valid or almost-valid substring.
+#### Pointer Movement
 
-Almost-valid:
-
-Constraint may break temporarily
-
-Shrinking restores validity
-
-Window must never stay invalid.
-
-🔄 Pointer Movement
-
-right expands window
-
-left shrinks window
+Right pointer expands the window.  
+Left pointer shrinks the window.
 
 Flow:
 
-Add new character
-
-Update frequency
-
-Check constraint
-
-If broken → shrink
-
-Restore validity
-
-Update answer
+1. Add new character
+2. Update frequency
+3. Check constraint
+4. If broken, shrink
+5. Restore validity
+6. Update answer
 
 Cycle:
 
 Expand → Break → Shrink → Restore → Update
 
-⏱️ Time & Space
+---
 
-Time:
+#### Time & Space
 
-Right moves n times
-Left moves at most n times
-→ O(n)
+Time → O(n)
 
-Space:
+Right moves at most n times.  
+Left moves at most n times.
 
-Frequency array / map
-→ O(1) or O(k)
+Space → O(1) or O(k)
 
-Part 2️⃣ — Dry-Run Recall (From Memory)
+Frequency storage is limited.
 
-No code. Only logic.
+---
 
-A. Palindrome Example
+## 2️⃣ Dry-Run Recall (From Memory)
 
-Example:
+Explain pointer movement without code.
 
-racecar
-
-
-Explain aloud:
-
-Compare first and last
-
-Move inward
-
-Continue until pointers meet
+- One palindrome example
+- One sliding window example
 
 Focus on:
 
-Why mismatch ends early
+- Why pointers move
+- When shrinking starts
+- When answer updates
 
-Why no extra memory needed
+---
 
-B. Sliding Window Example
-
-Example:
-
-Longest Substring Without Repeating Characters
-
-Explain:
-
-Add characters one by one
-
-Duplicate appears → window invalid
-
-Move left until duplicate removed
-
-Update answer only when valid
-
-Key realization:
-
-Duplicate is the signal to shrink.
-
-🎯 Goal of Day 7
+## 🎯 Goal of Day 7
 
 After this session you should:
 
-Explain both patterns without notes
+- Explain both patterns without notes
+- State invariants confidently
+- Describe pointer movement clearly
+- Justify O(n) without hesitation
+- Speak logic calmly like in an interview
 
-State invariant confidently
-
-Describe pointer movement clearly
-
-Justify O(n) without hesitation
-
-Speak logic calmly like in interview
+Understanding → Confidence → Control under pressure

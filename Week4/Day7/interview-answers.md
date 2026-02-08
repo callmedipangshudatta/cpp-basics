@@ -17,18 +17,19 @@ Efficient approaches:
 - Sliding Window → O(n)
 
 Reason:
+
 We reuse previous computation instead of recalculating.
 
 ---
 
 ## What Breaks If Pointers Move Incorrectly?
 
-Two Pointers:
+### Two Pointers
 
 - May skip mismatch
 - Can falsely detect palindrome
 
-Sliding Window:
+### Sliding Window
 
 - Window may remain invalid
 - Frequency becomes incorrect
@@ -40,11 +41,11 @@ Pointer discipline ensures correctness.
 
 ## What Invariant Maintains Correctness?
 
-Two Pointers:
+### Two Pointers
 
 Outer region already verified.
 
-Sliding Window:
+### Sliding Window
 
 Window is always valid or being restored.
 
@@ -54,12 +55,12 @@ Invariant is the safety rule that keeps logic correct.
 
 ## Worst-Case Complexity
 
-Two Pointers:
+### Two Pointers
 
 Time → O(n)  
 Space → O(1)
 
-Sliding Window:
+### Sliding Window
 
 Time → O(n)  
 Space → O(1) or O(k)
@@ -70,10 +71,10 @@ Pointers only move forward.
 
 ## How Would I Explain This to an Interviewer?
 
-Two Pointers:
+### Two Pointers
 
 I compare characters from both ends and move inward while maintaining that the checked region is already correct.
 
-Sliding Window:
+### Sliding Window
 
 I maintain a dynamic window that expands to explore and shrinks when constraints break, ensuring the window always represents a valid substring.
