@@ -1,94 +1,111 @@
+DAY 5 — Sliding Window (RECALL + TRAPS)
 TOKEN-1 — Recall (1 Hour, NO CODE)
 
-This document reinforces the Sliding Window pattern.
-Goal is clarity, not speed. Read slowly and visualize the window moving.
+This document is for reinforcing memory, not learning new things.
+You should be able to recall the full sliding window flow without seeing code.
 
-1️⃣ Sliding Window Core Template (Logic Only)
+Read slowly. Visualize the window moving.
 
-Sliding Window always follows a 3-phase cycle.
+1️⃣ Sliding Window Template (Logic Only)
 
-Phase 1 — Expand
+Every Sliding Window problem follows the same 3-step cycle.
+
+🔄 Expand Condition
 
 Move the right pointer.
 
 Purpose:
 
-Explore a larger range
-
 Include a new element
 
-Update frequency or count
+Increase window size
+
+Update frequency / count
 
 Think:
 
 “Can I safely grow the window?”
 
-Phase 2 — Check Validity
+Actions:
 
-After adding the new element:
+Add s[right]
 
-Does the window still satisfy the problem constraint?
+Increment frequency
 
-Example constraints:
+Check if constraint is still valid
 
-No duplicate characters
+⚠️ When Window Becomes Invalid
 
-At most k replacements
+The new element may cause:
 
-Frequency limit
+Duplicate character
 
-If valid → continue expanding
-If invalid → start shrinking
+Frequency exceeding limit
 
-Phase 3 — Shrink
+Replacement count exceeding k
+
+This is normal.
+
+The window is allowed to become temporarily invalid.
+
+🔽 Shrink Condition
 
 Move the left pointer.
 
 Purpose:
 
-Remove extra elements
+Remove extra characters
 
 Restore validity
 
-Reduce frequency
+Actions:
 
-Shrinking continues until constraint becomes valid again.
+Remove s[left]
 
-When Do We Update the Answer?
+Decrement frequency
 
-Only when the window is:
+Continue shrinking until constraint becomes valid again
 
-Fully valid
+🎯 When to Update Answer
 
-Represents a correct candidate
+Only update answer when:
 
-Common update moments:
+Window is valid
 
-Longest length
+Constraint satisfied
+
+Common updates:
+
+Maximum length
 
 Minimum length
 
 Maximum count
 
-If you update early → wrong answer.
+If updated too early → wrong answer.
 
 2️⃣ Common Sliding Window Traps (Write & Remember)
 
-These mistakes kill most interview attempts.
+These are the mistakes that break correct logic.
 
 Trap 1 — Updating Before Window Is Valid
 
 Window contains violation
-But answer already updated
+But answer already updated.
 
-Result → Incorrect maximum.
+Result:
+
+Incorrect maximum length.
 
 Trap 2 — Shrinking Too Late
 
-Window stays invalid for too long
-Frequency becomes corrupted
+Window stays invalid for too long.
 
-Effect → Wrong length calculation.
+Effects:
+
+Frequency map becomes incorrect
+
+Window logic collapses
 
 Trap 3 — Forgetting to Decrement Frequency
 
@@ -98,15 +115,15 @@ You must remove the left character
 
 Frequency must reduce
 
-Otherwise:
+If not:
 
-Duplicate still “exists” logically
+Duplicate still “exists” logically.
 
-Trap 4 — Incorrect Window Length Formula
+Trap 4 — Incorrect Window Length Calculation
 
-Correct:
+Correct formula:
 
-length = right - left + 1
+window length = right - left + 1
 
 
 Common mistake:
@@ -120,19 +137,22 @@ Trap 5 — Misunderstanding “At Most k”
 
 “At most k” means:
 
-Window allowed while condition ≤ k
+Window allowed while:
+
+condition ≤ k
+
 
 Not:
 
-Exactly k
+Exactly k.
 
-This confusion breaks many medium problems.
+This mistake breaks many medium problems.
 
 3️⃣ Time & Space Reasoning (Interview Critical)
 
-You must explain this confidently.
+You must explain this confidently without thinking.
 
-Why Sliding Window Is O(n)
+⏱️ Why Sliding Window is O(n)
 
 Each element:
 
@@ -140,23 +160,24 @@ Added once by right pointer
 
 Removed once by left pointer
 
-Total movements:
+Movements:
 
 Right moves → n times
-Left moves → n times
 
+Left moves → at most n times
 
-Total ≈ 2n → O(n)
+Total ≈ 2n
+Still O(n)
 
-No nested loops in reality.
+There is no true nested loop.
 
-Why Brute Force Substrings Are O(n²)
+🧱 Why Brute Force Substrings Are O(n²)
 
-Brute force approach:
+Brute force:
 
-Choose start index
+Pick start index
 
-Choose end index
+Pick end index
 
 Number of substrings:
 
@@ -164,121 +185,32 @@ n + (n-1) + (n-2) ...
 ≈ n²
 
 
-That’s why brute force times out.
+Too slow for large inputs.
 
-Why Hash Map Space Is Acceptable
+🧠 Why Hash Map Space Is Acceptable
 
 We store:
 
-Character frequencies
+Character frequency
 
-Typical limits:
+Usually limited:
 
-26 lowercase letters
+26 lowercase
 
 52 alphabets
 
 128 ASCII
 
-Space ≈ O(1) in most interview problems.
+Space ≈ O(1) in most cases.
 
-Even if hashmap:
+Even hashmap only stores unique characters.
 
-Space grows with unique characters only.
-
-4️⃣ Window Validity Mental Model
-
-Very important concept.
-
-Valid Window
-
-Satisfies constraint.
-
-Examples:
-
-No duplicates
-
-Replacements ≤ k
-
-Distinct characters ≤ k
-
-Almost-Valid Window
-
-Temporary violation.
-
-Allowed because:
-
-We will shrink immediately.
-
-This is normal behavior.
-
-Golden Rule
+Core Recall Line (Memorize This)
 
 Expand → Break → Shrink → Restore → Update
 
-This cycle repeats for entire array.
-
-5️⃣ Recognizing When to Shrink
-
-Shrink when:
-
-Duplicate appears
-
-Frequency exceeds limit
-
-Replacement cost > k
-
-Window size exceeds allowed condition
-
-If you delay shrinking:
-
-Window logic collapses.
-
-6️⃣ Mental Simulation (Mandatory)
-Simulation 1 — Duplicate Character Case
-
-Example:
-
-abcabcbb
-
-
-Observe:
-
-When duplicate enters
-
-Why left must move
-
-Why answer updates only after validity
-
-Focus:
-
-Duplicates force shrinking.
-
-Simulation 2 — “At Most k” Condition
-
-Window allowed while:
-
-condition ≤ k
-
-
-Once:
-
-condition > k
-
-
-Shrink immediately.
-
-This is the heart of medium-level sliding window problems.
-
-7️⃣ The One Invariant You Must Never Break
-
-Write this and remember it:
-
-At every step, the window represents a valid or almost-valid range according to the constraint.
-
-Shrinking exists only to restore this invariant.
-
-If invariant breaks → logic fails → wrong answer.
+If you remember only this line,
+you can still rebuild the entire Sliding Window logic.
 
 🎯 Goal of Day 5
 
@@ -290,10 +222,4 @@ Detect traps before they happen
 
 Explain why it is O(n)
 
-Know exactly when to expand, when to shrink
-
-Stay calm when window becomes invalid
-
-Understanding → Control
-Control → Speed
-Speed → Interview dominance
+Know exactly when to expand and shrink

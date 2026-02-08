@@ -1,132 +1,216 @@
-# DAY 7 — Detailed Revision Day (Most Important)
+DAY 7 — DETAILED REVISION DAY (MOST IMPORTANT)
 
-Rules:
-- No new learning
-- No browsing
-- No copying
-- Only memory and explanation
+Rules of Today
+
+No new learning
+
+No browsing
+
+No copying
+
+Only memory, thinking, and explanation
 
 Goal:
-If I can explain clearly without notes, I truly understand the pattern.
 
----
+If you can explain without notes, the pattern is truly yours.
 
-# Pattern Recall
+TOKEN-1 — Active Recall (1 Hour)
 
-## Two Pointers (Strings)
+Speak out loud.
+Silent thinking is not enough — interviews are verbal.
 
-### Trigger
+Part 1️⃣ — Pattern Recall
 
-Use when problem mentions:
+Explain both patterns from memory.
 
-- Palindrome
-- Reverse
-- Compare from both ends
-- Pair of indices
-- Symmetry
+A. Two Pointers (Strings)
+🔑 Trigger
 
-If characters must be checked from both sides → Two Pointers.
+Use Two Pointers when problem mentions:
 
----
+Palindrome
 
-### Invariant
+Reverse string
 
-At every step:
+Compare from both ends
 
-- Characters before left pointer are already correct
-- Characters after right pointer are already correct
+Pair checking
 
-Only middle part remains unchecked.
+Symmetry
+
+Core signal:
+
+Need to process string from left and right together.
+
+🛡️ Invariant
+
+Invariant means the rule that always stays true.
+
+For palindrome:
+
+Characters before left are already correct
+
+Characters after right are already correct
+
+Only the middle part is unknown.
 
 If mismatch appears → stop immediately.
 
----
-
-### Pointer Movement
+🔄 Pointer Movement
 
 Initial:
 
 left = 0  
 right = n - 1
 
-If match:
 
-left++  
+If characters match:
+
+left++
 right--
+
 
 If mismatch:
 
-return false
+Return false
 
 Pointers never move backward.
 
----
+⏱️ Time & Space
 
-### Time & Space
+Time:
 
-Time → O(n)  
-Space → O(1)
+Each character checked once → O(n)
 
-Each character checked once. No extra memory.
+Space:
 
----
+No extra storage → O(1)
 
-## Sliding Window (Strings)
-
-### Trigger
+B. Sliding Window (Strings)
+🔑 Trigger
 
 Look for:
 
-- Substring
-- Contiguous
-- Longest / shortest
-- Frequency / count
-- At most k
-- Without repeating
+Substring
 
-Substring almost always suggests Sliding Window.
+Contiguous
 
----
+Longest / shortest
 
-### Invariant
+Frequency / count
 
-The window always represents a valid or almost-valid substring.
+At most k
 
-If invalid:
+Without repeating
 
-Shrink until valid again.
+Signal:
 
-Window is never allowed to remain invalid.
+Continuous range inside string → Sliding Window.
 
----
+🛡️ Invariant
 
-### Pointer Movement
+Window always represents a valid or almost-valid substring.
 
-Right pointer → Expand  
-Left pointer → Shrink
+Almost-valid:
+
+Constraint may break temporarily
+
+Shrinking restores validity
+
+Window must never stay invalid.
+
+🔄 Pointer Movement
+
+right expands window
+
+left shrinks window
 
 Flow:
 
-1. Add character
-2. Update frequency
-3. Check constraint
-4. If broken → shrink
-5. Restore validity
-6. Update answer
+Add new character
+
+Update frequency
+
+Check constraint
+
+If broken → shrink
+
+Restore validity
+
+Update answer
 
 Cycle:
 
 Expand → Break → Shrink → Restore → Update
 
----
+⏱️ Time & Space
 
-### Time & Space
+Time:
 
-Time → O(n)
-
-Right moves n times  
+Right moves n times
 Left moves at most n times
+→ O(n)
 
-Space → O(1) or O(k)
+Space:
 
-Frequency array or hashmap.
+Frequency array / map
+→ O(1) or O(k)
+
+Part 2️⃣ — Dry-Run Recall (From Memory)
+
+No code. Only logic.
+
+A. Palindrome Example
+
+Example:
+
+racecar
+
+
+Explain aloud:
+
+Compare first and last
+
+Move inward
+
+Continue until pointers meet
+
+Focus on:
+
+Why mismatch ends early
+
+Why no extra memory needed
+
+B. Sliding Window Example
+
+Example:
+
+Longest Substring Without Repeating Characters
+
+Explain:
+
+Add characters one by one
+
+Duplicate appears → window invalid
+
+Move left until duplicate removed
+
+Update answer only when valid
+
+Key realization:
+
+Duplicate is the signal to shrink.
+
+🎯 Goal of Day 7
+
+After this session you should:
+
+Explain both patterns without notes
+
+State invariant confidently
+
+Describe pointer movement clearly
+
+Justify O(n) without hesitation
+
+Speak logic calmly like in interview
